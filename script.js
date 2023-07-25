@@ -49,7 +49,7 @@ document.addEventListener('keyup', (e) => {
 function gameOver() {
   clearInterval(blocks);
   character.style.animation = 'fadeout 1s forwards';
-  gameOverText.innerText = 'Game Over. Score: ' + scoreValue;
+  gameOverText.innerText = 'Game Over! Score: ' + scoreValue;
   restartButton.style.display = 'block';
   score.style.display = 'none';
 }

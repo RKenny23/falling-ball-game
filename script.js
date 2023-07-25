@@ -46,7 +46,7 @@ function gameOver() {
   clearInterval(blocks);
   character.style.animation = 'fadeout 1s forwards';
   gameOverText.innerText = 'Game Over. Score: ' + (counter - 9);
-  gameOverText.style.color = 'white';
+  // gameOverText.style.color = 'white';
   restartButton.style.display = 'block';
 }
 

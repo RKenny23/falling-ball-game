@@ -153,6 +153,10 @@ let blocks = setInterval(function () {
     character.style.top = characterTop - 0.5 + 'px';
   }
 
-  scoreValue = counter - 9;
-  score.innerText = scoreValue;
+  if (counter < 9) {
+    score.innerText = '0';
+  } else {
+    scoreValue = counter - 9;
+    score.innerText = scoreValue;
+  }
 }, 1);

@@ -55,12 +55,15 @@
   color: white;
   text-align: center;
   margin-top: 20px;
+  font-size: 2rem;
 }
 
 #restartButton {
   display: none;
   margin: auto;
   margin-top: 20px;
+  padding: 10px;
+  font-size: 2rem;
 }
 
 #score {

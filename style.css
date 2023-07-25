@@ -53,3 +53,15 @@
 #border h2 {
   color: white;
 }
+
+#gameOverText {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#restartButton {
+  display: none;
+  margin: auto;
+  margin-top: 20px;
+}

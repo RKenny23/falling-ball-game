@@ -1,5 +1,7 @@
 const character = document.getElementById('character');
 const game = document.getElementById('game');
+const gameOverText = document.getElementById('gameOverText');
+const restartButton = document.getElementById('restartButton');
 let interval;
 let both = 0;
 let counter = 0;
@@ -39,6 +41,17 @@ document.addEventListener('keyup', (e) => {
   clearInterval(interval);
   both = 0;
 });
+
+function gameOver() {
+  clearInterval(blocks);
+  gameOverText.innerText = 'Game Over. Score: ' + (counter - 9);
+  gameOverText.style.color = 'white';
+  restartButton.style.display = 'block';
+}
+
+function restartGame() {
+  window.location.reload();
+}
 
 let blocks = setInterval(function () {
   let blockLast = document.getElementById('block' + (counter - 1));
@@ -98,9 +111,7 @@ let blocks = setInterval(function () {
   }
 
   if (characterTop <= 0) {
-    alert('Game over. Score: ' + (counter - 9));
-    clearInterval(blocks);
-    window.location = '/';
+    gameOver();
   }
 
   for (let i = 0; i < currentBlocks.length; i++) {

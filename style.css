@@ -62,14 +62,25 @@
   display: none;
   margin: auto;
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 2rem;
+  border-radius: 12px;
+  border: 0;
+  background-color: red;
+  font-weight: bold;
+  
+}
+
+#restartButton:hover {
+  scale:0.95;
+  color:#fff;
+  transition: 0.3s;
 }
 
 #score {
-  position: absolute;
+  position: relative;
   bottom: 10px;
-  right: 10px;
+  right: 20px;
   font-size: 24px;
   color: white;
 }

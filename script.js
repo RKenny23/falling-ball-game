@@ -152,5 +152,5 @@ let blocks = setInterval(function () {
   }
 
   scoreValue = counter - 9;
-  score.innerText = 'Score: ' + scoreValue;
+  score.innerText = scoreValue;
 }, 1);

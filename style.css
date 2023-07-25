@@ -81,10 +81,10 @@ body {
 }
 
 #score {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  font-size: 24px;
+  position: relative;
+  bottom: -10px;
+  left: 470px;
+  font-size: 3rem;
   color: white;
 }
 

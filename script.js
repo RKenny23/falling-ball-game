@@ -7,6 +7,7 @@ let interval;
 let both = 0;
 let counter = 0;
 let currentBlocks = [];
+let scoreValue = 0;
 
 function moveLeft() {
   let left = parseInt(
@@ -46,7 +47,7 @@ document.addEventListener('keyup', (e) => {
 function gameOver() {
   clearInterval(blocks);
   character.style.animation = 'fadeout 1s forwards';
-  gameOverText.innerText = 'Game Over. Score: ' + (counter - 9);
+  gameOverText.innerText = 'Game Over. Score: ' + scoreValue;
   restartButton.style.display = 'block';
   score.style.display = 'none';
 }
@@ -150,5 +151,6 @@ let blocks = setInterval(function () {
     character.style.top = characterTop - 0.5 + 'px';
   }
 
-  score.innerText = 'Score: ' + (counter - 9);
+  scoreValue = counter - 9;
+  score.innerText = 'Score: ' + scoreValue;
 }, 1);

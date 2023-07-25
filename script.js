@@ -1,7 +1,5 @@
 const character = document.getElementById('character');
 const game = document.getElementById('game');
-const gameOverText = document.createElement('div');
-const restartButton = document.createElement('button');
 let interval;
 let both = 0;
 let counter = 0;
@@ -100,8 +98,9 @@ let blocks = setInterval(function () {
   }
 
   if (characterTop <= 0) {
+    alert('Game over. Score: ' + (counter - 9));
     clearInterval(blocks);
-    gameOver();
+    window.location = '/';
   }
 
   for (let i = 0; i < currentBlocks.length; i++) {
@@ -140,18 +139,3 @@ let blocks = setInterval(function () {
     character.style.top = characterTop - 0.5 + 'px';
   }
 }, 1);
-
-function gameOver() {
-  gameOverText.textContent = 'Game over. Score: ' + (counter - 9);
-  gameOverText.style.color = 'red';
-  gameOverText.style.fontSize = '24px';
-  game.appendChild(gameOverText);
-
-  restartButton.textContent = 'Restart';
-  restartButton.style.marginTop = '10px';
-  game.appendChild(restartButton);
-
-  restartButton.addEventListener('click', () => {
-    window.location.reload();
-  });
-}

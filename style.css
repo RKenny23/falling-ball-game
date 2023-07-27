@@ -20,11 +20,6 @@
   /* position: fixed; */
 }
 
-#startButton {
-  display: flex;
-  position: absolute;
-}
-
 #title {
   color: #fff;
   font-size: 4rem;

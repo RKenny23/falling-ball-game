@@ -168,14 +168,14 @@ let blocks = setInterval(function () {
     }
 
     // Hide hole when it reaches the top of the game window
-    if (iblockTop < 0) {
-      ihole.style.animation = 'fadeout 1s forwards';
-    }
+    // if (iblockTop < 30) {
+    //   ihole.style.animation = 'fadeout 1s forwards';
+    // }
 
     // Fade out blocks when they reach the top of the game window
-    if (iblockTop < 0) {
-      iblock.style.animation = 'fadeout 1s forwards';
-    }
+    // if (iblockTop < 30) {
+    //   iblock.style.animation = 'fadeout 1s forwards';
+    // }
   }
 
   // Block collision

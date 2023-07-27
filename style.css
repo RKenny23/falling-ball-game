@@ -107,22 +107,31 @@
 }
 
 #arrowButtons {
-  /* display: flex; */
   position: absolute;
-  /* justify-content: center; */
-  margin-top: 71vh;
+  top: 71%;
 }
 
 #leftButton,
 #rightButton {
+  height: 50px;
+  width: 50px;
   margin: 10px;
-  padding: 10px;
-  font-size: 2rem;
+  padding: 5px;
+  font-size: 1.8rem;
   border-radius: 50%;
   border: 0;
   background-color: #fff;
   cursor: pointer;
 }
+
+#leftButton {
+  padding-right: 8px;
+}
+
+#rightButton {
+  padding-left: 8px;
+}
+
 
 .hidden {
   display: none;

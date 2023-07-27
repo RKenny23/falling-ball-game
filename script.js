@@ -11,8 +11,6 @@ let counter = 0;
 let currentBlocks = [];
 let scoreValue = 0;
 
-score.innerText = '0'; // Set starting score to "0"
-
 function moveLeft() {
   let left = parseInt(
     window.getComputedStyle(character).getPropertyValue('left')
@@ -59,6 +57,8 @@ function gameOver() {
   score.style.display = 'none';
   leftButton.disabled = true;
   rightButton.disabled = true;
+  leftButton.style.display = 'none';
+  rightButton.style.display = 'none';
 }
 
 function restartGame() {

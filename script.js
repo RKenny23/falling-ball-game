@@ -74,8 +74,6 @@ function gameOver() {
   restartButton.style.display = 'block';
   score.style.display = 'none';
   gameEnded = true;
-  leftButton.disabled = true;
-  rightButton.disabled = true;
   leftButton.style.display = 'none';
   rightButton.style.display = 'none';
 }

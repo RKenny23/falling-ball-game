@@ -16,6 +16,7 @@ body {
   height: 500px;
   background-color: red;
   border: 1px solid black;
+  margin: 0 auto; /* Add this line to center the game div */
 }
 
 #character {

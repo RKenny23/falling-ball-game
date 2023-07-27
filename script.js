@@ -10,22 +10,27 @@ let both = 0;
 let counter = 0;
 let currentBlocks = [];
 let scoreValue = 0;
+let gameEnded = false;
 
 function moveLeft() {
-  let left = parseInt(
-    window.getComputedStyle(character).getPropertyValue('left')
-  );
-  if (left > 0) {
-    character.style.left = left - 2 + 'px';
+  if (!gameEnded) {
+    let left = parseInt(
+      window.getComputedStyle(character).getPropertyValue('left')
+    );
+    if (left > 0) {
+      character.style.left = left - 2 + 'px';
+    }
   }
 }
 
 function moveRight() {
-  let left = parseInt(
-    window.getComputedStyle(character).getPropertyValue('left')
-  );
-  if (left < 380) {
-    character.style.left = left + 2 + 'px';
+  if (!gameEnded) {
+    let left = parseInt(
+      window.getComputedStyle(character).getPropertyValue('left')
+    );
+    if (left < 380) {
+      character.style.left = left + 2 + 'px';
+    }
   }
 }
 
@@ -68,6 +73,7 @@ function gameOver() {
   gameOverText.innerText = 'Game Over! Score: ' + scoreValue;
   restartButton.style.display = 'block';
   score.style.display = 'none';
+  gameEnded = true;
   leftButton.disabled = true;
   rightButton.disabled = true;
   leftButton.style.display = 'none';

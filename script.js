@@ -142,6 +142,11 @@ let blocks = setInterval(function () {
         drop = 0;
       }
     }
+
+    // Hide hole when it reaches the top of the game window
+    if (iblockTop < 0) {
+      ihole.style.display = 'none';
+    }
   }
 
   // Block collision

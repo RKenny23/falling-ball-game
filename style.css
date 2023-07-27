@@ -3,14 +3,6 @@
   margin: 0;
 }
 
-/* body {
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
 #game {
   width: 400px;
   height: 500px;
@@ -122,6 +114,13 @@
   border: 0;
   background-color: #fff;
   cursor: pointer;
+  outline: none;
+}
+
+#leftButton:hover,
+#rightButton:hover {
+  scale:0.95;
+  transition: 0.3s;
 }
 
 #leftButton {

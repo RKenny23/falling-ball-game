@@ -5,13 +5,12 @@ const gameOverText = document.getElementById('gameOverText');
 const restartButton = document.getElementById('restartButton');
 const leftButton = document.getElementById('leftButton');
 const rightButton = document.getElementById('rightButton');
+const startButton = document.getElementById('startButton');
 let interval;
 let both = 0;
 let counter = 0;
 let currentBlocks = [];
 let scoreValue = 0;
-
-score.innerText = '0'; // Set starting score to "0"
 
 function moveLeft() {
   let left = parseInt(
@@ -59,116 +58,128 @@ function gameOver() {
   score.style.display = 'none';
   leftButton.disabled = true;
   rightButton.disabled = true;
+  leftButton.style.display = 'none';
+  rightButton.style.display = 'none';
 }
 
 function restartGame() {
   window.location.reload();
 }
 
-let blocks = setInterval(function () {
-  let blockLast = document.getElementById('block' + (counter - 1));
-  let holeLast = document.getElementById('hole' + (counter - 1));
-  let characterTop = parseInt(
-    window.getComputedStyle(character).getPropertyValue('top')
-  );
-  let characterLeft = parseInt(
-    window.getComputedStyle(character).getPropertyValue('left')
-  );
-  let drop = 0;
-  let blockSpeed = 0.5;
-
-  if (counter > 0) {
-    var blockLastTop = parseInt(
-      window.getComputedStyle(blockLast).getPropertyValue('top')
+function startGame() {
+  startButton.style.display = 'none';
+  character.classList.remove('hidden');
+  blocks.classList.remove('hidden');
+  score.classList.remove('hidden');
+  gameOverText.classList.remove('hidden');
+  restartButton.classList.remove('hidden');
+  leftButton.classList.remove('hidden');
+  rightButton.classList.remove('hidden');
+  blocks = setInterval(function () {
+    let blockLast = document.getElementById('block' + (counter - 1));
+    let holeLast = document.getElementById('hole' + (counter - 1));
+    let characterTop = parseInt(
+      window.getComputedStyle(character).getPropertyValue('top')
     );
-    var holeLastTop = parseInt(
-      window.getComputedStyle(holeLast).getPropertyValue('top')
+    let characterLeft = parseInt(
+      window.getComputedStyle(character).getPropertyValue('left')
     );
-  }
+    let drop = 0;
+    let blockSpeed = 0.5;
 
-  if (counter >= 0) {
-    blockSpeed = 0.5;
-  }
-  if (counter >= 20) {
-    blockSpeed = 0.75;
-  }
-  if (counter >= 35) {
-    blockSpeed = 0.85;
-  }
-  if (counter >= 50) {
-    blockSpeed = 0.9;
-  }
-  if (counter >= 100) {
-    blockSpeed = 1;
-  }
-
-  // Add more blocks
-  if (blockLastTop < 400 || counter == 0) {
-    const block = document.createElement('div');
-    const hole = document.createElement('div');
-    block.className = 'block';
-    block.id = 'block' + counter;
-    hole.className = 'hole';
-    hole.id = 'hole' + counter;
-    block.style.top = blockLastTop + 100 + 'px';
-    hole.style.top = holeLastTop + 100 + 'px';
-    let random = Math.floor(Math.random() * 360);
-    hole.style.left = random + 'px';
-    game.appendChild(block);
-    game.appendChild(hole);
-    currentBlocks.push(counter);
-    counter++;
-  }
-
-  if (characterTop <= 0) {
-    gameOver();
-  }
-
-  for (let i = 0; i < currentBlocks.length; i++) {
-    let current = currentBlocks[i];
-    let iblock = document.getElementById('block' + current);
-    let ihole = document.getElementById('hole' + current);
-    let iblockTop = parseFloat(
-      window.getComputedStyle(iblock).getPropertyValue('top')
-    );
-    let iholeLeft = parseFloat(
-      window.getComputedStyle(ihole).getPropertyValue('left')
-    );
-    iblock.style.top = iblockTop - blockSpeed + 'px';
-    ihole.style.top = iblockTop - blockSpeed + 'px';
-
-    // Remove blocks when they leave the game window
-    if (iblockTop < 0) {
-      currentBlocks.shift();
-      iblock.remove();
-      ihole.remove();
+    if (counter > 0) {
+      var blockLastTop = parseInt(
+        window.getComputedStyle(blockLast).getPropertyValue('top')
+      );
+      var holeLastTop = parseInt(
+        window.getComputedStyle(holeLast).getPropertyValue('top')
+      );
     }
-    if (iblockTop - 20 < characterTop && iblockTop > characterTop) {
-      drop++;
-      if (iholeLeft <= characterLeft && iholeLeft + 20 > characterLeft) {
-        drop = 0;
+
+    if (counter >= 0) {
+      blockSpeed = 0.5;
+    }
+    if (counter >= 20) {
+      blockSpeed = 0.75;
+    }
+    if (counter >= 35) {
+      blockSpeed = 0.85;
+    }
+    if (counter >= 50) {
+      blockSpeed = 0.9;
+    }
+    if (counter >= 100) {
+      blockSpeed = 1;
+    }
+
+    // Add more blocks
+    if (blockLastTop < 400 || counter == 0) {
+      const block = document.createElement('div');
+      const hole = document.createElement('div');
+      block.className = 'block';
+      block.id = 'block' + counter;
+      hole.className = 'hole';
+      hole.id = 'hole' + counter;
+      block.style.top = blockLastTop + 100 + 'px';
+      hole.style.top = holeLastTop + 100 + 'px';
+      let random = Math.floor(Math.random() * 360);
+      hole.style.left = random + 'px';
+      game.appendChild(block);
+      game.appendChild(hole);
+      currentBlocks.push(counter);
+      counter++;
+    }
+
+    if (characterTop <= 0) {
+      gameOver();
+    }
+
+    for (let i = 0; i < currentBlocks.length; i++) {
+      let current = currentBlocks[i];
+      let iblock = document.getElementById('block' + current);
+      let ihole = document.getElementById('hole' + current);
+      let iblockTop = parseFloat(
+        window.getComputedStyle(iblock).getPropertyValue('top')
+      );
+      let iholeLeft = parseFloat(
+        window.getComputedStyle(ihole).getPropertyValue('left')
+      );
+      iblock.style.top = iblockTop - blockSpeed + 'px';
+      ihole.style.top = iblockTop - blockSpeed + 'px';
+
+      // Remove blocks when they leave the game window
+      if (iblockTop < 0) {
+        currentBlocks.shift();
+        iblock.remove();
+        ihole.remove();
+      }
+      if (iblockTop - 20 < characterTop && iblockTop > characterTop) {
+        drop++;
+        if (iholeLeft <= characterLeft && iholeLeft + 20 > characterLeft) {
+          drop = 0;
+        }
+      }
+
+      // Hide hole when it reaches the top of the game window
+      if (iblockTop < 0) {
+        ihole.style.animation = 'fadeout 1s forwards';
       }
     }
 
-    // Hide hole when it reaches the top of the game window
-    if (iblockTop < 0) {
-      ihole.style.animation = 'fadeout 1s forwards';
+    // Block collision
+    if (drop == 0) {
+      if (characterTop < 480) {
+        character.style.top = characterTop + 2 + 'px';
+      }
+    } else {
+      character.style.top = characterTop - 0.5 + 'px';
     }
-  }
 
-  // Block collision
-  if (drop == 0) {
-    if (characterTop < 480) {
-      character.style.top = characterTop + 2 + 'px';
+    if (counter < 9) {
+      score.innerText = '0';
+    } else {
+      scoreValue = counter - 9;
+      score.innerText = scoreValue;
     }
-  } else {
-    character.style.top = characterTop - 0.5 + 'px';
-  }
-
-  if (counter < 9) {
-    score.innerText = '0';
-  } else {
-    scoreValue = counter - 9;
-    score.innerText = scoreValue;
-  }
-}, 1);
+  }, 1);
+}

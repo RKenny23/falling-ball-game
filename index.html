@@ -10,16 +10,21 @@
   </head>
   <body>
     <div id="border">
+      <div id="title">Falldown</div>
+      <div id="author">By Ryan</div>
       <div id="game">
-        <div id="character"></div>
-      </div>
-      <div id="score">0</div>
-      <!-- Set starting score to "0" -->
-      <div id="gameOverText"></div>
-      <button id="restartButton" onclick="restartGame()">RESTART</button>
-      <div id="arrowButtons">
-        <button id="leftButton" onclick="moveLeft()">←</button>
-        <button id="rightButton" onclick="moveRight()">→</button>
+        <button id="startButton" onclick="startGame()">START GAME</button>
+        <div id="character" class="hidden"></div>
+        <div id="blocks" class="hidden"></div>
+        <div id="score" class="hidden">0</div>
+        <div id="gameOverText" class="hidden"></div>
+        <button id="restartButton" onclick="restartGame()" class="hidden">
+          RESTART
+        </button>
+        <div id="arrowButtons" class="hidden">
+          <button id="leftButton" onclick="moveLeft()">←</button>
+          <button id="rightButton" onclick="moveRight()">→</button>
+        </div>
       </div>
     </div>
   </body>

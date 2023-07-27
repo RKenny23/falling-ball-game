@@ -16,6 +16,7 @@ body {
   height: 500px;
   background-color: red;
   border: 1px solid black;
+  position: fixed; /* Added position: fixed */
   /* margin: 0 auto; */
 }
 

@@ -16,7 +16,7 @@ body {
   height: 500px;
   background-color: red;
   border: 1px solid black;
-  margin: 0 auto; /* Add this line to center the game div */
+  /* margin: 0 auto; */
 }
 
 #character {
@@ -49,8 +49,8 @@ body {
 }
 
 #border {
-  width: 600px;
-  height: 700px;
+  width: 100vw;
+  height: 100vh;
   background-color: #000;
   z-index: 100;
   display: flex;

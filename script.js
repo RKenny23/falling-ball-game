@@ -29,8 +29,21 @@ function moveRight() {
   }
 }
 
-leftButton.addEventListener('click', moveLeft);
-rightButton.addEventListener('click', moveRight);
+leftButton.addEventListener('mousedown', () => {
+  interval = setInterval(moveLeft, 1);
+});
+
+rightButton.addEventListener('mousedown', () => {
+  interval = setInterval(moveRight, 1);
+});
+
+leftButton.addEventListener('mouseup', () => {
+  clearInterval(interval);
+});
+
+rightButton.addEventListener('mouseup', () => {
+  clearInterval(interval);
+});
 
 document.addEventListener('keydown', (e) => {
   if (both == 0) {

@@ -145,7 +145,7 @@ let blocks = setInterval(function () {
 
     // Hide hole when it reaches the top of the game window
     if (iblockTop < 0) {
-      ihole.style.display = 'none';
+      ihole.style.animation = 'fadeout 1s forwards';
     }
   }
 

@@ -3,6 +3,8 @@ const game = document.getElementById('game');
 const score = document.getElementById('score');
 const gameOverText = document.getElementById('gameOverText');
 const restartButton = document.getElementById('restartButton');
+const leftButton = document.getElementById('leftButton');
+const rightButton = document.getElementById('rightButton');
 let interval;
 let both = 0;
 let counter = 0;
@@ -29,6 +31,9 @@ function moveRight() {
   }
 }
 
+leftButton.addEventListener('click', moveLeft);
+rightButton.addEventListener('click', moveRight);
+
 document.addEventListener('keydown', (e) => {
   if (both == 0) {
     both++;
@@ -52,6 +57,8 @@ function gameOver() {
   gameOverText.innerText = 'Game Over! Score: ' + scoreValue;
   restartButton.style.display = 'block';
   score.style.display = 'none';
+  leftButton.disabled = true;
+  rightButton.disabled = true;
 }
 
 function restartGame() {

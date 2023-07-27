@@ -131,7 +131,7 @@ let blocks = setInterval(function () {
     ihole.style.top = iblockTop - blockSpeed + 'px';
 
     // Remove blocks when they leave the game window
-    if (iblockTop < -20) {
+    if (iblockTop < 0) {
       currentBlocks.shift();
       iblock.remove();
       ihole.remove();
